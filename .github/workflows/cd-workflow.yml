@@ -24,6 +24,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: sebastien-prudhomme/github-actions-for-packages/tic-tac-toe:latest
+        tags: docker.pkg.github.com/sebastien-prudhomme/github-actions-for-packages/tic-tac-toe:latest
         # repository: sebastien-prudhomme/github-actions-for-packages/tic-tac-toe
         # tag_with_sha: true
