@@ -16,7 +16,7 @@ jobs:
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v1
       with:
-        registry: docker.pkg.github.com # ghcr.io
+        registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
@@ -24,6 +24,5 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: docker.pkg.github.com/sebastien-prudhomme/github-actions-for-packages/tic-tac-toe:latest
-        # repository: sebastien-prudhomme/github-actions-for-packages/tic-tac-toe
+        tags: ghcr.io/sebastien-prudhomme/github-actions-for-packages/tic-tac-toe:latest
         # tag_with_sha: true
