@@ -13,6 +13,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
+    - name: Docker meta
+      id: meta
+      uses: docker/metadata-action@v3
+      with:
+        images: ghcr.io/sebastien-prudhomme/github-actions-for-packages/tic-tac-toe
+
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v1
       with:
@@ -24,5 +30,5 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: ghcr.io/sebastien-prudhomme/github-actions-for-packages/tic-tac-toe:latest
+        tags: ${{ steps.meta.outputs.tags }}
         # tag_with_sha: true
