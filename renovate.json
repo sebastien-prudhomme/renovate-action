@@ -19,7 +19,6 @@
       "matchPaths": [
         ".github/workflows/**"
       ],
-      "groupName": "github workflows",
       "semanticCommitType": "ci"
     }
   ]
