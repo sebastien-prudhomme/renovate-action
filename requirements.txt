@@ -1,4 +1,4 @@
-grpcio==1.40.0
+grpcio==1.41.1
 grpcio_health_checking==1.40.0
 mariadb==1.0.8
 pytest==6.2.5
