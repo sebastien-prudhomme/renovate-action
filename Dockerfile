@@ -1,3 +1,6 @@
-# Your Dockerfile contents go here!
-FROM nginx:1.21.3
-RUN pwd
+FROM python:3.9.0
+
+COPY . /tests
+WORKDIR /tests
+
+RUN pip install -r requirements.txt
