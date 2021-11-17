@@ -27,3 +27,11 @@ jobs:
           load: true
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: 3.10.0 # renovate: python
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt

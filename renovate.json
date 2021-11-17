@@ -16,5 +16,17 @@
       ],
       "automerge": true
     }
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["^\\.github\\/workflows\\/.*$"],
+      "matchStrings": [
+        "(:|-) (?<currentValue>.+?) # renovate: python\\n"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "python",
+      "extractVersionTemplate": "^(?<version>.+)-\\d+$",
+      "lookupNameTemplate": "actions/python-versions"
+    }
   ]
 }
