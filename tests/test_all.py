@@ -4,7 +4,7 @@ import testinfra
 
 @pytest.fixture(scope='session')
 def host(request):
-    docker_id = subprocess.check_output(['docker', 'run', '-d', 'ghcr.io/sebastien-prudhomme/chart-tests:test1']).decode().strip()
+    docker_id = subprocess.check_output(['docker', 'run', '-d', , '-ti', 'ghcr.io/sebastien-prudhomme/chart-tests:test1']).decode().strip()
 
     yield testinfra.get_host("docker://" + docker_id)
 
