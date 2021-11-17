@@ -11,5 +11,4 @@ def host(request):
     subprocess.check_call(['docker', 'rm', '-f', docker_id])
 
 def test_pytest(host):
-    assert host.check_output('pwd') == '/tests'
     assert host.check_output('pytest -V') == 'pytest 6.2.5'
