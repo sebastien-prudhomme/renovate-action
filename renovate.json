@@ -1,17 +1,5 @@
 {
   "dependencyDashboard": true,
-  "major": {
-    "bumpVersion": "major",
-    "semanticCommitType": "BREAKING CHANGE"
-  },
-  "minor": {
-    "bumpVersion": "minor",
-    "semanticCommitType": "feat"
-  },
-  "patch": {
-    "bumpVersion": "patch",
-    "semanticCommitType": "fix"
-  },
   "semanticCommits": "enabled",
   "semanticCommitScope": null,
   "packageRules": [
