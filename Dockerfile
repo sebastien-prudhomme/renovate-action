@@ -1,6 +1,10 @@
 FROM python:3.9.0
 
-COPY . /tests
 WORKDIR /tests
 
-RUN pip install -r requirements.txt
+COPY requirements.txt ./
+RUN pip install -r requirements.txt && \
+    rm -f requirements.txt
+
+USER nobody
+CMD [ "pytest", "-p", "no:cacheprovider", "--verbose" ]

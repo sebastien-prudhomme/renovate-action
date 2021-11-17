@@ -8,6 +8,12 @@
         ".github/workflows/**"
       ],
       "semanticCommitType": "ci"
+    },
+    {
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "automerge": true
     }
   ]
 }
