@@ -1,9 +1,10 @@
-import pytest
 import subprocess
+
+import pytest
 import testinfra
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def host(request):
     image = "ghcr.io/sebastien-prudhomme/chart-tests:test1"
 
