@@ -36,7 +36,5 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r tests/requirements.txt
 
-      - run: docker images
-
       - name: Test
         run: pytest --verbose
