@@ -11,4 +11,4 @@ def host(request):
     subprocess.check_call(['docker', 'rm', '-f', docker_id])
 
 def test_pytest(host):
-    assert host.check_output('pytest') == 'pytest 6.2.5'
+    assert host.check_output('which pytest') == 'pytest 6.2.5'
