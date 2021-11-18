@@ -8,7 +8,7 @@ import testinfra
 def host(request):
     image = "ghcr.io/sebastien-prudhomme/chart-tests:test1"
 
-    docker_id = subprocess.check_output(["docker", "run", "-d", image]).decode().strip()
+    docker_id = subprocess.check_output(["docker", "run", "-d", image, "sleep", "infinity"]).decode().strip()
 
     yield testinfra.get_host(f"docker://{docker_id}")
 
