@@ -16,4 +16,4 @@ def host(request):
 
 
 def test_pytest(host):
-    assert host.check_output("pytest") == "pytest"
+    assert host.package("pytest").is_installed
