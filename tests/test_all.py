@@ -16,4 +16,4 @@ def host(request):
 
 
 def test_pytest(host):
-    assert "pytest" in host.pip_package.get_packages()
+    assert "pytest" in host.pip.get_packages()
