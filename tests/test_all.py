@@ -5,12 +5,14 @@ import testinfra
 
 @pytest.fixture(scope='session')
 def host(request):
-    docker_id = subprocess.check_output(['docker', 'run', '-d', 'ghcr.io/sebastien-prudhomme/chart-tests:test1']).decode().strip()
+    image = "ghcr.io/sebastien-prudhomme/chart-tests:test1"
 
-    yield testinfra.get_host('docker://' + docker_id)
+    docker_id = subprocess.check_output(f"docker run -d {image}").decode().strip()
 
-    subprocess.check_call(['docker', 'rm', '-f', docker_id])
+    yield testinfra.get_host(f"docker://{docker_id}")
+
+    subprocess.check_call(f"docker rm -f {docker_id}")
 
 
 def test_pytest(host):
-    assert host.check_output(['pytest', '-V']) == 'pytest 6.2.5'
+    assert host.check_output("pytest -V") == "pytest"
