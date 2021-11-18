@@ -12,8 +12,8 @@ def host(request):
 
     yield testinfra.get_host(f"docker://{docker_id}")
 
-    subprocess.check_call(f"docker rm -f {docker_id}")
+    subprocess.check_call(["docker", "rm", "-f", docker_id])
 
 
 def test_pytest(host):
-    assert host.check_output("pytest -V") == "pytest"
+    assert host.check_output("pytest") == "pytest"
