@@ -8,13 +8,15 @@ import testinfra
 @pytest.fixture(scope="session")
 def host():
     image = "ghcr.io/sebastien-prudhomme/chart-tests:test1"
+    command_run = ["docker", "run", "-d", image, "sleep", "infinity"]
 
-    output = subprocess.check_output(["docker", "run", "-d", image, "sleep", "infinity"])
+    output = subprocess.check_output(command_run)
     docker_id = output.decode().rstrip()
 
     yield testinfra.get_host(f"docker://{docker_id}")
 
-    subprocess.check_call(["docker", "rm", "-f", docker_id])
+    command_rm = ["docker", "rm", "-f", docker_id]
+    subprocess.check_call(command_rm)
 
 
 @pytest.fixture(scope="session")
@@ -39,8 +41,9 @@ def test_pytest_package(packages):
 
 
 def test_pytest_version(host):
-    output = host.check_output("pytest -V 2>&1")
+    command = "pytest -V 2>&1"
 
+    output = host.check_output(command)
     assert re.match(r"^pytest \d+\.\d+\.\d+$", output)
 
 
