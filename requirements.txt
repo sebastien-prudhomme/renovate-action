@@ -1,5 +1,5 @@
 grpcio==1.41.1
 grpcio_health_checking==1.41.0
 mariadb==1.0.8
-pytest==5.4.3
+pytest==6.2.5
 requests==2.26.0

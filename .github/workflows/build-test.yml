@@ -7,7 +7,7 @@ on:
       - '!main'
 
 jobs:
-  build-push:
+  build-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,12 +19,22 @@ jobs:
         id: metadata
         uses: docker/metadata-action@v3.6.0
         with:
-          images: ghcr.io/${{ github.repository_owner	}}/chart-tests
-          # tags: |
-          #   type=semver,pattern={{version}}
+          images: ghcr.io/${{ github.repository_owner }}/chart-tests
 
-      - name: Build and push
+      - name: Build
         uses: docker/build-push-action@v2.7.0
         with:
+          load: true
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: 3.9.0 # renovate: python
+
+      - name: Install Python dependencies
+        run: pip install -r tests/requirements.txt
+
+      - name: Test
+        run: pytest --verbose
