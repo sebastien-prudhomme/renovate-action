@@ -16,5 +16,5 @@ def host(request):
 
 
 def test_pytest(host):
-    assert host.check_output('pytest -V') == 'pytest 1.0.0'
+    assert host.check_output('pytest -h') == 'pytest 1.0.0'
     assert "pytest" in host.pip.get_packages()
