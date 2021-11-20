@@ -13,3 +13,5 @@ jobs:
 
       - name: Run Checkov
         uses: bridgecrewio/checkov-action@v12.1002.0
+        with:
+          config_file: checkov.yaml
