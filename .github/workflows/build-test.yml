@@ -31,7 +31,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2.3.0
         with:
-          python-version: 3.9.0 # renovate: python
+          python-version: 3.10.0 # renovate: python
 
       - name: Install Python dependencies
         run: pip install -r tests/requirements.txt
