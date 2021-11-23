@@ -1,6 +1,9 @@
 {
   "dependencyDashboard": true,
   "dryRun": true,
+  "repositories": [
+    "sebastien-prudhomme/renovate-action"
+  ],
   "semanticCommits": "enabled",
   "semanticCommitScope": null,
   "packageRules": [
