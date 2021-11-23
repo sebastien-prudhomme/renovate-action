@@ -1,7 +1,5 @@
 {
   "dependencyDashboard": true,
-  "dryRun": true,
-  "autodiscover": true,
   "semanticCommits": "enabled",
   "semanticCommitScope": null,
   "packageRules": [
