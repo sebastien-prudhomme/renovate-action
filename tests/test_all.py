@@ -13,6 +13,10 @@ def test_mariadb_package(packages):
     assert "mariadb" in packages
 
 
+def test_psycopg2_package(packages):
+    assert "psycopg2" in packages
+
+
 def test_pytest_package(packages):
     assert "pytest" in packages
 
