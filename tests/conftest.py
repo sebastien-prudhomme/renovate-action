@@ -4,11 +4,13 @@ import pytest
 import testinfra
 
 def pytest_addoption(parser):
-    parser.addoption("--image", action = "store")
+    parser.addoption("--image")
+
 
 @pytest.fixture(scope="session")
 def image(request):
     return request.config.getoption("--image")
+
 
 @pytest.fixture(scope="session")
 def host(image):
@@ -21,6 +23,7 @@ def host(image):
 
     command_rm = ["docker", "rm", "-f", docker_id]
     subprocess.check_call(command_rm)
+
 
 @pytest.fixture(scope="session")
 def packages(host):
