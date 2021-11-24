@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  bump:
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
