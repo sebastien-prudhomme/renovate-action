@@ -22,6 +22,31 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tag_prefix: ''
 
+      - name: Generate metadata
+        id: metadata
+        uses: docker/metadata-action@v3.6.0
+        if: steps.tag_version.outputs.new_tag
+        with:
+          images: ghcr.io/${{ github.repository_owner }}/pytest
+          tags: |
+            type=raw,value={{ steps.tag_version.outputs.new_tag }}
+
+      - name: Login to registry
+        uses: docker/login-action@v1.10.0
+        if: steps.tag_version.outputs.new_tag
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v2.7.0
+        if: steps.tag_version.outputs.new_tag
+        with:
+          push: true
+          tags: ${{ steps.metadata.outputs.tags }}
+          labels: ${{ steps.metadata.outputs.labels }}
+
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         if: steps.tag_version.outputs.new_tag
