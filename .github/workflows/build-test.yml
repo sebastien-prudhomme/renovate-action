@@ -33,4 +33,4 @@ jobs:
         run: pip install -r tests/requirements.txt
 
       - name: Test
-        run: pytest --verbose
+        run: pytest -v --image ${{ steps.metadata.outputs.tags }}

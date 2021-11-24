@@ -3,5 +3,3 @@ grpcio_health_checking==1.42.0
 mariadb==1.0.8
 pytest==6.2.5
 requests==2.26.0
-
-pytest-testinfra==6.4.0
