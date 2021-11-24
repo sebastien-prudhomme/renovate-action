@@ -7,7 +7,7 @@
       "matchPaths": [
         ".github/workflows/**"
       ],
-      "semanticCommitType": "ci",
+      "semanticCommitType": "ci"
     },
     {
       "matchPaths": [
