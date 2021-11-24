@@ -8,6 +8,8 @@
         ".github/workflows/**"
       ],
       "semanticCommitType": "ci",
+    },
+    {
       "matchPaths": [
         "tests/**"
       ],
