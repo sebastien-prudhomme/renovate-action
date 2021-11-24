@@ -15,15 +15,15 @@ def image(request):
 
 @pytest.fixture(scope="session")
 def host(image):
-    command_run = ["docker", "run", "-d", image, "sleep", "infinity"]
+    run_command = ["docker", "run", "-d", image, "sleep", "infinity"]
 
-    output = subprocess.check_output(command_run)
+    output = subprocess.check_output(run_command)
     docker_id = output.decode().rstrip()
 
     yield testinfra.get_host(f"docker://{docker_id}")
 
-    command_rm = ["docker", "rm", "-f", docker_id]
-    subprocess.check_call(command_rm)
+    rm_command = ["docker", "rm", "-f", docker_id]
+    subprocess.check_call(rm_command)
 
 
 @pytest.fixture(scope="session")
