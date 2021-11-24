@@ -2,6 +2,7 @@
   "dependencyDashboard": true,
   "semanticCommits": "enabled",
   "semanticCommitScope": null,
+  "semanticCommitType": "fix",
   "packageRules": [
     {
       "matchPaths": [
