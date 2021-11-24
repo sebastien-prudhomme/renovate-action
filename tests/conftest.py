@@ -3,6 +3,7 @@ import subprocess
 import pytest
 import testinfra
 
+
 def pytest_addoption(parser):
     parser.addoption("--image")
 

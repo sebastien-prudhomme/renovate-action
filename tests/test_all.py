@@ -1,8 +1,4 @@
 import re
-import subprocess
-
-import pytest
-import testinfra
 
 
 def test_grpcio_package(packages):
