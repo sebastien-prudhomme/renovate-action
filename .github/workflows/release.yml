@@ -23,7 +23,7 @@ jobs:
         uses: cycjimmy/semantic-release-action@v2.6.0
         with:
           branches: |
-            [main]
+            ['main']
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # run: npx semantic-release -b main -p @semantic-release/commit-analyzer,@semantic-release/release-notes-generator,@semantic-release/github --debug
