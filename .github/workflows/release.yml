@@ -20,7 +20,7 @@ jobs:
           node-version: 16.12.0 # renovate: node
 
       - name: Release
-        run: npx semantic-release --help
+        run: npx semantic-release --debug
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
