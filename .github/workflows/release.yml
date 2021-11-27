@@ -21,6 +21,9 @@ jobs:
 
       - name: Release
         uses: cycjimmy/semantic-release-action@v2.6.0
+        with:
+          branches: |
+            [main]
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # run: npx semantic-release -b main -p @semantic-release/commit-analyzer,@semantic-release/release-notes-generator,@semantic-release/github --debug
@@ -32,16 +35,16 @@ jobs:
       #     default_bump: false
       #     github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Generate metadata
-      #   id: metadata
-      #   uses: docker/metadata-action@v3.6.0
-      #   if: steps.tag.outputs.new_tag
-      #   with:
-      #     images: ghcr.io/${{ github.repository_owner }}/pytest
-      #     tags: |
-      #       type=raw,value=${{ steps.tag.outputs.new_version }}
-      #     flavor: |
-      #       latest=true
+      - name: Generate metadata
+        id: metadata
+        uses: docker/metadata-action@v3.6.0
+        if: steps.tag.outputs.new_tag
+        with:
+          images: ghcr.io/${{ github.repository_owner }}/pytest
+          tags: |
+            type=raw,value=${{ steps.tag.outputs.new_version }}
+          flavor: |
+            latest=true
 
       - name: Login to registry
         uses: docker/login-action@v1.10.0
