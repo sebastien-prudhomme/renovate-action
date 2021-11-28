@@ -29,8 +29,8 @@ jobs:
 
       - name: Release
         uses: cycjimmy/semantic-release-action@v2.6.0
-        with:
-          branches: '["main"]'
+        # with:
+        #   branches: '["main"]'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
