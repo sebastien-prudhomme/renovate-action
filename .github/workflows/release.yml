@@ -27,6 +27,7 @@ jobs:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #   run: npx semantic-release -b main -p @semantic-release/commit-analyzer,@semantic-release/release-notes-generator,@semantic-release/github --debug
 
+      #Ne detecte pas le fichir de conf
       - name: Release
         uses: cycjimmy/semantic-release-action@v2.6.0
         # with:
@@ -34,14 +35,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Release
-      #   uses: ridedott/release-me-action@v3.6.18
-      #   with:
-      #     release-branches: '["main"]'
-      #     release-rules: '[{ "release": false, "subject": "*\\[skip release\\]*" }]'
-      #     # disable-changelog: true
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release
+        uses: ridedott/release-me-action@v3.6.18
+        with:
+          # release-branches: '["main"]'
+          # release-rules: '[{ "release": false, "subject": "*\\[skip release\\]*" }]'
+          # disable-changelog: true
+          config-file: .releaserc
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate metadata
         id: metadata
