@@ -1,3 +1,9 @@
+## [0.7.2](https://github.com/sebastien-prudhomme/renovate-action/compare/v0.7.1...v0.7.2) (2021-11-28)
+
+### Build System
+
+- test ([9cd74f8](https://github.com/sebastien-prudhomme/renovate-action/commit/9cd74f88e1936b66b110c365c49743c5d628a3c8))
+
 ## [0.7.1](https://github.com/sebastien-prudhomme/renovate-action/compare/v0.7.0...v0.7.1) (2021-11-28)
 
 ### Bug Fixes
