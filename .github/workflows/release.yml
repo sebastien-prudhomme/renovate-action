@@ -28,12 +28,12 @@ jobs:
       #   run: npx semantic-release -b main -p @semantic-release/commit-analyzer,@semantic-release/release-notes-generator,@semantic-release/github --debug
 
       #Ne detecte pas le fichir de conf
-      - name: Release
-        uses: cycjimmy/semantic-release-action@v2.6.0
-        # with:
-        #   branches: '["main"]'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Release
+      #   uses: cycjimmy/semantic-release-action@v2.6.0
+      #   # with:
+      #   #   branches: '["main"]'
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Release
         uses: ridedott/release-me-action@v3.6.18
