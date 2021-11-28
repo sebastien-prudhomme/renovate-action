@@ -31,8 +31,7 @@ jobs:
       - name: Release
         uses: ridedott/release-me-action@v3.6.18
         with:
-          release-branches: |
-            ['main']
+          release-branches: '["main"]'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Generate metadata
