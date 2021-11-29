@@ -41,7 +41,7 @@ jobs:
           # release-branches: '["main"]'
           # release-rules: '[{ "release": false, "subject": "*\\[skip release\\]*" }]'
           # disable-changelog: true
-          config-file: .releaserc
+          config-file: release.config.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
