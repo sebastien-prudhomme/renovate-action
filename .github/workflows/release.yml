@@ -24,8 +24,8 @@ jobs:
         uses: cycjimmy/semantic-release-action@v2.6.0
         with:
           semantic_version: 18.0.0 # renovate: semantic-release
-          extra_plugins: |
-            conventional-changelog-conventionalcommits@4.6.0 # renovate: npm
+          extra_plugins: | # renovate: npm
+            conventional-changelog-conventionalcommits@4.6.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
