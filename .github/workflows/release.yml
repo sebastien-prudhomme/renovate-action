@@ -22,12 +22,18 @@ jobs:
       # - Pas de possibilité de récupérer la version
       # + Ne release pas quand build/ci/etc
       # - Ne fait pas de doc sur build/ci/etc
+      # + fait une release github
+
       # - name: Release
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #   run: npx semantic-release -b main -p @semantic-release/commit-analyzer,@semantic-release/release-notes-generator,@semantic-release/github --debug
 
-      #Ne detecte pas le fichir de conf
+      # + Possibilité de récupérer la version
+      # + Ne release pas quand build/ci/etc
+      # - Ne fait pas de doc sur build/ci/etc
+      # + fait une release github
+
       - name: Release
         uses: cycjimmy/semantic-release-action@v2.6.0
         env:
