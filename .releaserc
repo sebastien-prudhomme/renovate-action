@@ -25,7 +25,7 @@
             },
             {
               "type": "fix",
-              "section": "Bug"
+              "section": "Bug Fixes"
             },
             {
               "type": "perf",
@@ -41,39 +41,32 @@
             },
             {
               "type": "style",
-              "section": "Styles",
-              "hidden": false
+              "section": "Styles"
             },
             {
               "type": "chore",
-              "section": "Miscellaneous Chores",
-              "hidden": false
+              "section": "Miscellaneous Chores"
             },
             {
               "type": "refactor",
-              "section": "Code Refactoring",
-              "hidden": false
+              "section": "Code Refactoring"
             },
             {
               "type": "test",
-              "section": "Tests",
-              "hidden": false
+              "section": "Tests"
             },
             {
               "type": "build",
-              "section": "Build System",
-              "hidden": false
+              "section": "Build System"
             },
             {
               "type": "ci",
-              "section": "Continuous Integration",
-              "hidden": false
+              "section": "Continuous Integration"
             }
           ]
         }
       }
     ],
     "@semantic-release/github"
-  ],
-  "debug": true
+  ]
 }
