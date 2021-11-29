@@ -19,53 +19,30 @@ jobs:
         with:
           node-version: 16.12.0 # renovate: node
 
-      # - Pas de possibilité de récupérer la version
-      # + Ne release pas quand build/ci/etc
-      # - Ne fait pas de doc sur build/ci/etc
-      # + fait une release github
-
-      # - name: Release
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   run: npx semantic-release -b main -p @semantic-release/commit-analyzer,@semantic-release/release-notes-generator,@semantic-release/github --debug
-
-      # + Possibilité de récupérer la version
-      # + Ne release pas quand build/ci/etc
-      # + Fait une doc sur build/ci/etc (si correctement configuré)
-      # + fait une release github
-
       - name: Release
+        id: release
         uses: cycjimmy/semantic-release-action@v2.6.0
         with:
+          semantic_version: 18.0.0
           extra_plugins: |
-            conventional-changelog-conventionalcommits
+            conventional-changelog-conventionalcommits@4.6.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # - name: Release
-      #   uses: ridedott/release-me-action@v3.6.18
-      #   with:
-      #     # release-branches: '["main"]'
-      #     # release-rules: '[{ "release": false, "subject": "*\\[skip release\\]*" }]'
-      #     # disable-changelog: true
-      #     config-file: ./release.config.js
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate metadata
         id: metadata
         uses: docker/metadata-action@v3.6.0
-        if: steps.tag.outputs.new_tag
+        if: steps.release.outputs.new_release_published
         with:
           images: ghcr.io/${{ github.repository_owner }}/pytest
           tags: |
-            type=raw,value=${{ steps.tag.outputs.new_version }}
+            type=raw,value=${{ steps.release.outputs.new_release_version }}
           flavor: |
             latest=true
 
       - name: Login to registry
         uses: docker/login-action@v1.10.0
-        if: steps.tag.outputs.new_tag
+        if: steps.release.outputs.new_release_published
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -73,15 +50,8 @@ jobs:
 
       - name: Build and push
         uses: docker/build-push-action@v2.7.0
-        if: steps.tag.outputs.new_tag
+        if: steps.release.outputs.new_release_published
         with:
           push: true
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
-
-      # - name: Create a GitHub release
-      #   uses: ncipollo/release-action@v1
-      #   if: steps.tag.outputs.new_tag
-      #   with:
-      #     tag: ${{ steps.tag.outputs.new_tag }}
-      #     body: ${{ steps.tag.outputs.changelog }}
