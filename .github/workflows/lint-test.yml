@@ -27,7 +27,7 @@ jobs:
 
       - name: Generate metadata
         id: metadata
-        uses: docker/metadata-action@v3.6.0
+        uses: docker/metadata-action@v3.6.1
         with:
           images: ghcr.io/${{ github.repository_owner }}/pytest
 
@@ -38,7 +38,7 @@ jobs:
           labels: ${{ steps.metadata.outputs.labels }}
 
       - name: Set up Python
-        uses: actions/setup-python@v2.3.0
+        uses: actions/setup-python@v2.3.1
         with:
           python-version: 3.10.0 # renovate: python
 

@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Node
-        uses: actions/setup-node@v2.4.1
+        uses: actions/setup-node@v2.5.0
         with:
           node-version: 16.12.0 # renovate: node
 
@@ -31,7 +31,7 @@ jobs:
 
       - name: Generate metadata
         id: metadata
-        uses: docker/metadata-action@v3.6.0
+        uses: docker/metadata-action@v3.6.1
         if: steps.release.outputs.new_release_published == 'true'
         with:
           images: ghcr.io/${{ github.repository_owner }}/pytest
