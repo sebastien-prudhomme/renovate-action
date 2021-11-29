@@ -36,6 +36,16 @@
       "depNameTemplate": "python",
       "extractVersionTemplate": "^(?<version>.+)-\\d+$",
       "lookupNameTemplate": "actions/python-versions"
+    },
+    {
+      "fileMatch": [
+        "^\\.github\\/workflows\\/.*$"
+      ],
+      "matchStrings": [
+        "(:|-) (?<currentValue>.+?) # renovate: semantic-release\\n"
+      ],
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "semantic-release"
     }
   ]
 }
