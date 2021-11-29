@@ -30,6 +30,15 @@
         "^\\.github\\/workflows\\/.*$"
       ],
       "matchStrings": [
+        " (?<depName>.+?)@(?<currentValue>.+?) # renovate: npm\\n"
+      ],
+      "datasourceTemplate": "npm"
+    },
+    {
+      "fileMatch": [
+        "^\\.github\\/workflows\\/.*$"
+      ],
+      "matchStrings": [
         "(:|-) (?<currentValue>.+?) # renovate: python\\n"
       ],
       "datasourceTemplate": "github-releases",
