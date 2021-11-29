@@ -13,7 +13,7 @@
       "@semantic-release/release-notes-generator",
       {
         "preset": "conventionalcommits",
-        "writerOpts": {
+        "presetConfig": {
           "types": [
             {
               "type": "feat",
@@ -37,8 +37,7 @@
             },
             {
               "type": "docs",
-              "section": "Documentation",
-              "hidden": false
+              "section": "Documentation"
             },
             {
               "type": "style",
