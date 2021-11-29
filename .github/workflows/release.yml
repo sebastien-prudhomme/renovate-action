@@ -31,7 +31,7 @@ jobs:
 
       # + Possibilité de récupérer la version
       # + Ne release pas quand build/ci/etc
-      # + Ne fait pas de doc sur build/ci/etc
+      # + Fait une doc sur build/ci/etc (si correctement configuré)
       # + fait une release github
 
       - name: Release
