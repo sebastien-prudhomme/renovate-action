@@ -42,7 +42,7 @@
         "^\\.github\\/workflows\\/.*$"
       ],
       "matchStrings": [
-        " (?<depName>.+?)@(?<currentValue>.+?) # renovate: npm\\n"
+        " (?<depName>conventional-changelog-conventionalcommits?)@(?<currentValue>.+?)\\n"
       ],
       "datasourceTemplate": "npm"
     },
