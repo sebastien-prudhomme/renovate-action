@@ -17,15 +17,15 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v2.5.0
         with:
-          node-version: 16.12.0 # renovate: node
+          node-version: 16.13.0 # renovate: node
 
       - name: Release
         id: release
         uses: cycjimmy/semantic-release-action@v2.6.0
         with:
-          semantic_version: 18.0.0 # renovate: semantic-release
-          extra_plugins: |
-            conventional-changelog-conventionalcommits@4.6.0 # renovate: npm
+          semantic_version: 18.0.1 # renovate: semantic-release
+          extra_plugins: | # renovate: npm
+            conventional-changelog-conventionalcommits@4.6.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
