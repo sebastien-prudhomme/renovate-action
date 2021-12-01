@@ -30,21 +30,21 @@
         "^\\.github\\/workflows\\/.*$"
       ],
       "matchStrings": [
-        "(:|-) (?<currentValue>.+?) # renovate: node\\n"
+        " (?<depName>conventional-changelog-conventionalcommits?)@(?<currentValue>.+?)\\n"
       ],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "node",
-      "extractVersionTemplate": "^(?<version>.+)-\\d+$",
-      "lookupNameTemplate": "actions/node-versions"
+      "datasourceTemplate": "npm"
     },
     {
       "fileMatch": [
         "^\\.github\\/workflows\\/.*$"
       ],
       "matchStrings": [
-        " (?<depName>conventional-changelog-conventionalcommits?)@(?<currentValue>.+?)\\n"
+        "(:|-) (?<currentValue>.+?) # renovate: node\\n"
       ],
-      "datasourceTemplate": "npm"
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "node",
+      "extractVersionTemplate": "^(?<version>.+)-\\d+$",
+      "lookupNameTemplate": "actions/node-versions"
     },
     {
       "fileMatch": [
