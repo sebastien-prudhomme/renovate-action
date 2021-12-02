@@ -1,5 +1,8 @@
 {
   "dependencyDashboard": true,
+  "schedule": [
+    "before 2am"
+  ],
   "semanticCommits": "enabled",
   "semanticCommitScope": null,
   "semanticCommitType": "fix",
