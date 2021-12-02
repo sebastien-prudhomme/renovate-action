@@ -19,4 +19,4 @@ jobs:
           RENOVATE_CONFIG_FILE: renovate.json
           RENOVATE_REPOSITORIES: ${{ github.repository }}
           RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
-          LOG_LEVEL: debug
+          LOG_LEVEL: info
