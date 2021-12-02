@@ -1,8 +1,9 @@
 # Docker Image for Pytest
 
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org/)
 [![Renovate](https://img.shields.io/badge/Renovate-enabled-brightgreen.svg?logo=renovatebot)](https://renovatebot.com/)
-[![Semantic Release](https://img.shields.io/badge/Semantic%20Release-Conventional%20Commits-green.svg?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+[![Semantic Release](https://img.shields.io/badge/Semantic%20Release-enabled-brightgreen.svg?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
 ## Repository Settings
 
