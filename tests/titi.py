@@ -6,6 +6,7 @@ import os
 import requests
 
 
+
 def test_controller_service_connection():
     url = 'https://{{ include "katib.controller.fullname" . }}.{{ .Release.Namespace }}.svc:{{ .Values.controller.service.port }}/'
     verify = '/controller-tls-secret/ca.crt'
