@@ -1,7 +1,7 @@
 {
   "dependencyDashboard": true,
   "schedule": [
-    "before 3am on Sunday"
+    "before 3am on Monday"
   ],
   "semanticCommits": "enabled",
   "semanticCommitScope": null,
