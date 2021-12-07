@@ -1,6 +1,7 @@
+import os
+
 import grpc
 import mariadb
-import os
 import requests
 from grpc_health.v1 import health_pb2, health_pb2_grpc
 
