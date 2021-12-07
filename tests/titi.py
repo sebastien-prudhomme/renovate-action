@@ -6,8 +6,8 @@ import mariadb
 import requests
 
 def test_controller_service_connection():
-    url = 'https://{{ include "katib.controller.fullname" . }}.{{ .Release.Namespace }}.svc:{{ .Values.controller.service.port }}/'
-    verify = '/controller-tls-secret/ca.crt'
+    url = "https://{{ include "katib.controller.fullname" . }}.{{ .Release.Namespace }}.svc:{{ .Values.controller.service.port }}/"
+    verify = "/controller-tls-secret/ca.crt"
 
     response = requests.get(url, verify=verify)
 
@@ -15,7 +15,7 @@ def test_controller_service_connection():
 
 
 def test_controller_metrics_service_connection():
-    url = 'http://{{ include "katib.controller.metrics.fullname" . }}:{{ .Values.controller.metrics.service.port }}/metrics'
+    url = "http://{{ include "katib.controller.metrics.fullname" . }}:{{ .Values.controller.metrics.service.port }}/metrics"
 
     response = requests.get(url)
 
@@ -23,7 +23,7 @@ def test_controller_metrics_service_connection():
 
 
 def test_db_manager_service_connection():
-    target = '{{ include "katib.dbManager.fullname" . }}:{{ .Values.dbManager.service.port }}'
+    target = "{{ include "katib.dbManager.fullname" . }}:{{ .Values.dbManager.service.port }}"
 
     channel = grpc.insecure_channel(target)
     stub = health_pb2_grpc.HealthStub(channel)
@@ -35,7 +35,7 @@ def test_db_manager_service_connection():
 
 
 def test_ui_service_connection():
-    url = 'http://{{ include "katib.ui.fullname" . }}:{{ .Values.ui.service.port }}/katib/'
+    url = "http://{{ include "katib.ui.fullname" . }}:{{ .Values.ui.service.port }}/katib/"
 
     response = requests.get(url)
 
@@ -44,11 +44,11 @@ def test_ui_service_connection():
 
 def test_mariadb_service_connection():
     options = {
-        'host': '{{ include "katib.mariadb.host" . }}',
-        'port': {{ include "katib.mariadb.port" . }},
-        'user': '{{ include "katib.mariadb.username" . }}',
-        'password': os.environ.get('MARIADB_PASSWORD'),
-        'database': '{{ include "katib.mariadb.database" . }}'
+        "host": "{{ include "katib.mariadb.host" . }}",
+        "port": {{ include "katib.mariadb.port" . }},
+        "user": "{{ include "katib.mariadb.username" . }}",
+        "password": os.environ.get("MARIADB_PASSWORD"),
+        "database": "{{ include "katib.mariadb.database" . }}"
     }
 
     with mariadb.connect(**options) as connection:
