@@ -1,9 +1,10 @@
 import os
 
 import grpc
-from grpc_health.v1 import health_pb2, health_pb2_grpc
 import mariadb
 import requests
+from grpc_health.v1 import health_pb2, health_pb2_grpc
+
 
 def test_controller_service_connection():
     url = "https://{{ include "katib.controller.fullname" . }}.{{ .Release.Namespace }}.svc:{{ .Values.controller.service.port }}/"
@@ -48,7 +49,7 @@ def test_mariadb_service_connection():
         "port": {{ include "katib.mariadb.port" . }},
         "user": "{{ include "katib.mariadb.username" . }}",
         "password": os.environ.get("MARIADB_PASSWORD"),
-        "database": "{{ include "katib.mariadb.database" . }}"
+        "database": "{{ include "katib.mariadb.database" . }}",
     }
 
     with mariadb.connect(**options) as connection:

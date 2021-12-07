@@ -1,9 +1,8 @@
 import grpc
-from grpc_health.v1 import health_pb2
-from grpc_health.v1 import health_pb2_grpc
 import mariadb
 import os
 import requests
+from grpc_health.v1 import health_pb2, health_pb2_grpc
 
 
 def test_controller_service_connection():
@@ -49,7 +48,7 @@ def test_mariadb_service_connection():
         "port": 3306,
         "user": "katib",
         "password": os.environ.get("MARIADB_PASSWORD"),
-        "database": "katib"
+        "database": "katib",
     }
 
     with mariadb.connect(**options) as connection:
