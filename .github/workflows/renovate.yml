@@ -1,8 +1,8 @@
 name: Renovate
 
-on:
-  schedule:
-    - cron: '0/15 * * * *'
+#on:
+#  schedule:
+#    - cron: '0/15 * * * *'
 
 jobs:
   renovate:
